@@ -1,0 +1,69 @@
+name: Awesome
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 1,12 * * *'
+
+jobs:
+  awesome:
+    name: Awesome
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install dependencies
+        run: |
+          yarn install
+
+      - name: Test
+        run: |
+          yarn test:ci
+
+      - name: Generate Awesome
+        run: |
+          yarn start
+
+      - name: Configure git
+        run: |
+          git config --global user.email "jakpat.m@gmail.com"
+          git config --global user.name "WhatTheFar"
+
+      - name: Commit and push changes
+        env:
+          COMMIT_M: "feat: update contents"
+        run: |
+          git add .
+
+          if [ -n "$(git diff --cached)" ]; then
+            echo "there are changes";
+
+            last_commit=$(git log -1 --pretty=%B)
+
+            if [ "${last_commit}" == "${COMMIT_M}" ]; then
+              git commit --amend -m "${COMMIT_M}"
+            else
+              git commit -m "${COMMIT_M}"
+            fi
+
+            git push
+          else
+            echo "no changes";
+          fi
