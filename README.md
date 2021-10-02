@@ -47,8 +47,9 @@ Bash
 | Title                                             | Description                                                                                             |
 | :------------------------------------------------ | :------------------------------------------------------------------------------------------------------ |
 | [CUE](https://github.com/cuelang/cue)             | An open source data constraint language which aims to simplify tasks involving defining and using data. |
-| [Dhall](https://github.com/dhall-lang/dhall-lang) |                                                                                                         |
-| [Jsonnet](https://github.com/google/jsonnet)      |                                                                                                         |
+| [Dhall](https://github.com/dhall-lang/dhall-lang) | Maintainable configuration files                                                                        |
+| [JK](https://github.com/jkcfg/jk)                 | Configuration as Code with ECMAScript                                                                   |
+| [Jsonnet](https://github.com/google/jsonnet)      | Validate and define text-based and dynamic configuration                                                |
 | [Kapitan](https://github.com/deepmind/kapitan)    |                                                                                                         |
 
 [Back to Top](#table-of-contents)
@@ -59,14 +60,15 @@ Bash
 
 <!--START_SECTION:awesome:container-->
 
-| Title                                                    | Description                          |
-| :------------------------------------------------------- | :----------------------------------- |
-| [Buildah](https://github.com/containers/buildah)         |                                      |
-| [Docker](https://www.docker.com/)                        |                                      |
-| [docker-compose](https://github.com/docker/compose)      |                                      |
-| [gVisor](https://github.com/google/gvisor)               | Application Kernel for Containers    |
-| [Kaniko](https://github.com/GoogleContainerTools/kaniko) | Build Container Images In Kubernetes |
-| [Podman](https://github.com/containers/podman)           |                                      |
+| Title                                                    | Description                            |
+| :------------------------------------------------------- | :------------------------------------- |
+| [Buildah](https://github.com/containers/buildah)         |                                        |
+| [Docker](https://www.docker.com/)                        |                                        |
+| [docker-compose](https://github.com/docker/compose)      |                                        |
+| [gVisor](https://github.com/google/gvisor)               | Application Kernel for Containers      |
+| [Kaniko](https://github.com/GoogleContainerTools/kaniko) | Build Container Images In Kubernetes   |
+| [Podman](https://github.com/containers/podman)           |                                        |
+| [Tini](https://github.com/krallin/tini)                  | A tiny but valid `init` for containers |
 
 [Back to Top](#table-of-contents)
 
